@@ -9,16 +9,6 @@ app.use(cors());
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
-// Database connection
-
-// const db = mysql.createConnection({
-//     host: "mysql-35b33f49-adityaroushan995555-0140.h.aivencloud.com",    
-//     user: "avnadmin",     
-//     password: "AVNS_pqV8JlwYLnj09HmU---",  
-//     database: "defaultdb",   
-//     port: 18267,        
-    
-// });
 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -71,6 +61,7 @@ app.post("/getColleges", (req, res) => {
     });
 });
 
+module.exports = db;
 // Start server
 app.listen(5000, () => {
     console.log("Server is running on port 5000");
