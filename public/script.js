@@ -5,11 +5,11 @@ document.getElementById("collegeForm").addEventListener("submit", async function
     const category = document.getElementById("category").value;
     const rank = document.getElementById("rank").value;
 
-    const response = await fetch("http://localhost:5000/getColleges", {
+    const response = await fetch("/api/getColleges", { // Match Vercel route
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ gender, category, rank })
-    });
+      });
 
     const data = await response.json();
     const resultDiv = document.getElementById("result");
