@@ -5,7 +5,7 @@ document.getElementById("collegeForm").addEventListener("submit", async function
     const category = document.getElementById("category").value;
     const rank = document.getElementById("rank").value;
 
-    const response = await fetch("http://localhost:5000/getColleges", {
+    const response = await fetch("/getColleges", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ gender, category, rank })
