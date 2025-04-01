@@ -44,13 +44,3 @@ A data-driven web application that predicts IIIT/NIT admission probabilities usi
 | **Infrastructure** | Render.com (Production Hosting)       |
 | **Version Control**| Git/GitHub                            |
 
-## 🏗️ Project Structure
-
-college-predictor/
-├── public/ 
-│ ├── index.html 
-│ ├── script.js 
-│ └── styles.css 
-├── server.js 
-├── package.json 
-└── .env.example 
