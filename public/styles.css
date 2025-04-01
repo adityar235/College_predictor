@@ -75,3 +75,13 @@ form {
 .red {
     background-color: red;
 }
+
+
+.error {
+    color: red;
+    padding: 10px;
+    background: #ffeeee;
+    border: 1px solid #ffcccc;
+    border-radius: 4px;
+    margin: 10px 0;
+}
