@@ -1,1 +1,1 @@
-COLLEGE PREDICTOR With JEE Rank
+                                                                                       COLLEGE PREDICTOR 
