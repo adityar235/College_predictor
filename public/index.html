@@ -1,39 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>College Predictor</title>
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h1>IIIT College Predictor</h1>
+</head>
+<body>
+    <h1>College Predictor</h1>
     
     <form id="collegeForm">
-      <label for="gender">Gender:</label>
-      <select id="gender">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
+        <label for="gender">Gender:</label>
+        <select id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
 
-      <label for="category">Category:</label>
-      <select id="category">
-        <option value="General">General</option>
-        <option value="OBC">OBC</option>
-        <option value="SC">SC</option>
-        <option value="ST">ST</option>
-      </select>
+        <label for="category">Category:</label>
+        <select id="category">
+            <option value="General">General</option>
+            <option value="OBC">OBC</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+        </select>
 
-      <label for="rank">Rank:</label>
-      <input type="number" id="rank" required min="1" />
+        <label for="rank">Rank:</label>
+        <input type="number" id="rank" required min="1" />
 
-      <div class="button-container">
-        <button type="submit">Get Colleges</button>
-      </div>
+        <div id="subcategoryRankContainer" style="display: none;">
+            <label for="subcategoryRank">Subcategory Rank:</label>
+            <input type="number" id="subcategoryRank" min="1" />
+        </div>
+
+        <div class="button-container">
+            <button type="submit">Get Colleges</button>
+        </div>
     </form>
+
+    <div id="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading colleges...</p>
+    </div>
 
     <div id="result"></div>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>

@@ -8,10 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Database connection
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -28,9 +26,8 @@ db.connect(err => {
     console.log("Connected to MySQL");
 });
 
-// API endpoint
 app.post("/getColleges", (req, res) => {
-    const { gender, category, rank } = req.body;
+    const { gender, category, rank, subcategoryRank } = req.body;
     const tableName = `${gender}_${category}`;
     
     const query = `SELECT college_name, branch_name, round_1, round_2, round_3, round_4, round_5, sr_1, sr_2 FROM ${tableName}`;
@@ -41,17 +38,19 @@ app.post("/getColleges", (req, res) => {
             return res.status(500).json({ error: "Database query failed" });
         }
         
-        // Modify results with colors
         const processedData = results.map(row => {
+            // For General category, use main rank for all rounds
+            const effectiveRank = category === "General" ? rank : subcategoryRank;
+            
             return {
                 college: row.college_name,
                 branch: row.branch_name,
                 rounds: [
-                    { round: "Round 1", value: row.round_1, color: row.round_1 >= rank ? "green" : "red" },
-                    { round: "Round 2", value: row.round_2, color: row.round_2 >= rank ? "green" : "red" },
-                    { round: "Round 3", value: row.round_3, color: row.round_3 >= rank ? "green" : "red" },
-                    { round: "Round 4", value: row.round_4, color: row.round_4 >= rank ? "green" : "red" },
-                    { round: "Round 5", value: row.round_5, color: row.round_5 >= rank ? "green" : "red" },
+                    { round: "Round 1", value: row.round_1, color: row.round_1 >= effectiveRank ? "green" : "red" },
+                    { round: "Round 2", value: row.round_2, color: row.round_2 >= effectiveRank ? "green" : "red" },
+                    { round: "Round 3", value: row.round_3, color: row.round_3 >= effectiveRank ? "green" : "red" },
+                    { round: "Round 4", value: row.round_4, color: row.round_4 >= effectiveRank ? "green" : "red" },
+                    { round: "Round 5", value: row.round_5, color: row.round_5 >= effectiveRank ? "green" : "red" },
                     { round: "SR 1", value: row.sr_1, color: row.sr_1 >= rank ? "green" : "red" },
                     { round: "SR 2", value: row.sr_2, color: row.sr_2 >= rank ? "green" : "red" }
                 ],
@@ -63,7 +62,6 @@ app.post("/getColleges", (req, res) => {
     });
 });
 
-// Handle React routing, return all requests to React app
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
