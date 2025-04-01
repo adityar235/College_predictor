@@ -1,21 +1,26 @@
 const express = require("express");
-const mysql = require('mysql2/promise');
+const mysql = require("mysql2");
 const cors = require("cors");
 const path = require('path');
 
-require('dotenv').config();
+
 const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Aiven MySQL connection configuration
 const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    port: process.env.DB_PORT,
+    host: process.env.DB_HOST || "your-aiven-host",
+    user: process.env.DB_USER || "your-aiven-user",
+    password: process.env.DB_PASSWORD || "your-aiven-password",
+    database: process.env.DB_NAME || "your-aiven-db",
+    port: process.env.DB_PORT || "your-aiven-port",
+    ssl: {
+        rejectUnauthorized: true
+    }
 });
 
 db.connect(err => {
@@ -27,7 +32,7 @@ db.connect(err => {
 });
 
 // API endpoint
-app.post("/getColleges", (req, res) => {
+app.post("/api/getColleges", (req, res) => {
     const { gender, category, rank } = req.body;
     const tableName = `${gender}_${category}`;
     
@@ -61,8 +66,15 @@ app.post("/getColleges", (req, res) => {
     });
 });
 
-module.exports = app;
+// Handle all other routes by serving the index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // Start server
-// app.listen(5000, () => {
-//     console.log("Server is running on port 5000");
-// });
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+module.exports = app;
