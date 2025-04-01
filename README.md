@@ -47,10 +47,10 @@ A data-driven web application that predicts IIIT/NIT admission probabilities usi
 ## 🏗️ Project Structure
 
 college-predictor/
-├── public/ # Frontend assets
-│ ├── index.html # Main application interface
-│ ├── script.js # Client-side logic
-│ └── styles.css # Custom styling
-├── server.js # Backend server (API endpoints)
-├── package.json # Dependency management
-└── .env.example # Environment configuration template
+├── public/ 
+│ ├── index.html 
+│ ├── script.js 
+│ └── styles.css 
+├── server.js 
+├── package.json 
+└── .env.example 
