@@ -1,5 +1,8 @@
 # 🎯 College Admission Predictor - JEE Rank Based Analysis
 
+![Website Screenshot](images/webfront.png)
+![Website Screenshot](images/predicted_web_front.png)
+
 *Live prediction interface showing college admission chances*
 
 ## 🌟 Overview
