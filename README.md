@@ -75,20 +75,7 @@ A data-driven web application that predicts IIIT/NIT admission probabilities usi
 8. Access at: http://localhost:5000
 
    🗃️ Database Configuration
-   CREATE TABLE IF NOT EXISTS Male_General (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  college_name VARCHAR(100) NOT NULL,
-  branch_name VARCHAR(50) NOT NULL,
-  round_1 INT NOT NULL,
-  round_2 INT NOT NULL,
-  round_3 INT NOT NULL,
-  round_4 INT NOT NULL,
-  round_5 INT NOT NULL,
-  sr_1 INT NOT NULL,
-  sr_2 INT NOT NULL,
-  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  INDEX (college_name, branch_name)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    ![Website Screenshot](images/database_configuration.png)
 
 📬 Contact
 📧 aditya.rouss@gmail.com
