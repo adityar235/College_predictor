@@ -49,3 +49,49 @@ A data-driven web application that predicts IIIT/NIT admission probabilities usi
 
 ## 🏗️ Project Structure
 ![Website Screenshot](images/file_structure.png)
+
+### Step-by-Step Setup
+
+1. **Clone repository**
+
+2. Install dependencies
+   npm install
+   
+4. Configure environment
+   cp .env.example .env
+   nano .env  # Update with your credentials
+   
+6. Environment Variables:
+   DB_HOST = your-aiven-host
+  DB_USER = your-username
+  DB_PASSWORD = your-password
+  DB_NAME = CollegeAdmissions
+  DB_PORT = 12345    (database server port)
+  PORT = 5000        
+
+7. Start development server
+   npm start
+
+8. Access at: http://localhost:5000
+
+   🗃️ Database Configuration
+   CREATE TABLE IF NOT EXISTS Male_General (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  college_name VARCHAR(100) NOT NULL,
+  branch_name VARCHAR(50) NOT NULL,
+  round_1 INT NOT NULL,
+  round_2 INT NOT NULL,
+  round_3 INT NOT NULL,
+  round_4 INT NOT NULL,
+  round_5 INT NOT NULL,
+  sr_1 INT NOT NULL,
+  sr_2 INT NOT NULL,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX (college_name, branch_name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+📬 Contact
+📧 aditya.rouss@gmail.com
+🔗 https://www.linkedin.com/in/aditya-roushan-9a665727a
+
+
