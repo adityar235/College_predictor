@@ -47,3 +47,5 @@ A data-driven web application that predicts IIIT/NIT admission probabilities usi
 | **Infrastructure** | Render.com (Production Hosting)       |
 | **Version Control**| Git/GitHub                            |
 
+## 🏗️ Project Structure
+![Website Screenshot](images/file_structure.png)
