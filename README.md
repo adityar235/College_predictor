@@ -78,6 +78,9 @@ A data-driven web application that predicts IIIT/NIT admission probabilities usi
    
     ![Website Screenshot](images/database_configuration1.png)
 
+🆘 Need Help?
+If you get stuck at any point while setting up or using the application, feel free to reach out:
+    
 📬 Contact
 📧 aditya.rouss@gmail.com
 🔗 https://www.linkedin.com/in/aditya-roushan-9a665727a
