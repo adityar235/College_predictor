@@ -75,6 +75,7 @@ A data-driven web application that predicts IIIT/NIT admission probabilities usi
 8. Access at: http://localhost:5000
 
    🗃️ Database Configuration
+   
     ![Website Screenshot](images/database_configuration1.png)
 
 📬 Contact
